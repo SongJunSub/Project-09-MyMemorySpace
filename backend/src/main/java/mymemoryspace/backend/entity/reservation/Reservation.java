@@ -22,13 +22,15 @@ public class Reservation {
 
     private String reservationName;
 
-    private Date birthDate;
+    @Column(length = 8)
+    private String birthDate;
 
     private String mobileNo;
 
     private String email;
 
-    private LocalDateTime reservationDate;
+    @Column(length = 8)
+    private String reservationDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_no")

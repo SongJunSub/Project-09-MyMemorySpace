@@ -21,7 +21,8 @@ public class Customer {
 
     private String customerName;
 
-    private Date birthDate;
+    @Column(length = 8)
+    private String birthDate;
 
     private String mobileNo;
 

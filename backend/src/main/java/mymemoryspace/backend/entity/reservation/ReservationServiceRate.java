@@ -19,7 +19,8 @@ public class ReservationServiceRate {
     @JoinColumn(name = "reservation_no", insertable = false, updatable = false)
     private Reservation reservation;
 
-    private LocalDateTime stayDate;
+    @Column(length = 8)
+    private String stayDate;
 
     private String serviceTypeCode;
 

@@ -25,7 +25,8 @@ public class User {
     @Column(nullable = false)
     private String userName;
 
-    private Date birthDate;
+    @Column(length = 8)
+    private String birthDate;
 
     private String mobileNo;
 
