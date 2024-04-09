@@ -1,4 +1,4 @@
-package shoppingmall.backend;
+package mymemoryspace.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

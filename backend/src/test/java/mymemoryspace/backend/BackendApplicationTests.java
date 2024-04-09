@@ -1,4 +1,4 @@
-package shoppingmall.backend;
+package mymemoryspace.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
