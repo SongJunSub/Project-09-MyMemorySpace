@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ShoppingMallApp.iml" filepath="$PROJECT_DIR$/.idea/ShoppingMallApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MyMemorySpace.iml" filepath="$PROJECT_DIR$/.idea/MyMemorySpace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/backend.main.iml" filepath="$PROJECT_DIR$/.idea/modules/backend.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/frontend.iml" filepath="$PROJECT_DIR$/frontend.iml" />
     </modules>
   </component>
