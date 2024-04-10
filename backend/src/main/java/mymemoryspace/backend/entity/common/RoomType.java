@@ -25,6 +25,8 @@ public class RoomType {
 
     private int standardRoomRate;
 
+    private int roomCount;
+
     private String activeYn;
 
 }
