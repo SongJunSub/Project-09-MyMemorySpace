@@ -1,13 +1,21 @@
-import {Accordion, Badge, Table} from "react-bootstrap";
+import {Accordion, Badge, CloseButton, Table} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
 
 const JPASelect = () => {
 
+    const navigate = useNavigate();
+
     return (
-        <div>
-            <Accordion defaultActiveKey="0">
+        <div className="container">
+            <div className="titleAndClose">
+                <h3 className="titleStyle">JPA Select</h3>
+                <CloseButton className="closeName" onClick={() => {navigate("/")}}/>
+            </div>
+
+            <Accordion className="introduceAccordion" defaultActiveKey="0">
                 <Accordion.Item eventKey="0">
                     <Accordion.Header>Introduction #1</Accordion.Header>
-                    <Accordion.Body>
+                    <Accordion.Body className="accordionBody">
                         JPA, QueryDSL을 이용한 조회 화면입니다.
                     </Accordion.Body>
                 </Accordion.Item>

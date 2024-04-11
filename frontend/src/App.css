@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+
+.signUp {
+  margin: 5px;
+}
+
+.formLabel {
+  text-align: left;
+}
+
+.closeName {
+  margin: 10px;
+}
+
+.introduceAccordion {
+  margin-bottom: 30px;
+}
+
+.accordionBody {
+ text-align: left;
+}
+
+.titleStyle {
+  font-weight: bold;
+}
+
+.titleAndClose {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.divider {
+  border-top: 1px solid blueviolet;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}

@@ -24,21 +24,23 @@ const TopContainer = () => {
                             <Nav.Link href="#action1">소개</Nav.Link>
                             <Nav.Link onClick={() => moveToGit()}>Git</Nav.Link>
                             <NavDropdown title="Function" id="navbarScrollingDropdown">
-                                <NavDropdown.Item onClick={() => {navigate("/api/jpaSelect")}}>JPA Select</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">Native Query Select</NavDropdown.Item>
+                                <NavDropdown.Item>기능 소개</NavDropdown.Item>
                                 <NavDropdown.Divider/>
-                                <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
+                                <NavDropdown.Item onClick={() => {navigate("/api/reservation")}}>Reservation</NavDropdown.Item>
+                                <NavDropdown.Item onClick={() => {navigate("/api/jpaSelect")}}>JPA Select</NavDropdown.Item>
+                                <NavDropdown.Item>Native Query Select</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                         <Form className="d-flex">
-                            <Form.Control
-                                type="search"
-                                placeholder="Search"
-                                className="me-2"
-                                aria-label="Search"
-                            />
+                            <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search"/>
                             <Button variant="outline-success">Search</Button>
                         </Form>
+                        <Button className="signUp" variant="primary" type="submit">
+                            Sign Up
+                        </Button>
+                        <Button variant="outline-success" type="submit">
+                            Sign In
+                        </Button>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
