@@ -23,11 +23,25 @@ public class Reservation {
     private String reservationName;
 
     @Column(length = 8)
+    private String arrivalDate;
+
+    @Column(length = 8)
+    private String departureDate;
+
+    private int nights;
+
+    private String roomNo;
+
+    @Column(length = 8)
     private String birthDate;
 
     private String mobileNo;
 
     private String email;
+
+    private String address;
+
+    private String detailAddress;
 
     @Column(length = 8)
     private String reservationDate;
