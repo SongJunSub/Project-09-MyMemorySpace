@@ -1,21 +1,39 @@
 import {Accordion, Button, CloseButton, Col, FloatingLabel, Form, Row} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import 'react-datepicker/dist/react-datepicker.css';
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 const Reservation = () => {
 
+    const selectRoomTypeURL = "/api/roomType";
+    const selectAvailableRoomNoURL = "/api/availableRoomNo";
+
     const navigate = useNavigate();
     const [date, setDate] = useState("");
+    const [nights, setNights] = useState(1);
+    const [roomTypeOptions, setRoomTypeOptions] = useState([]);
+    const [roomTypeValue, setRoomTypeValue] = useState("");
+    const [roomNoOptions, setRoomNoOptions] = useState([]);
+    const [roomRate, setRoomRate] = useState("");
     const [mobileNo, setMobileNo] = useState("");
+
+    useEffect(() => {
+        setNights(1);
+    }, []);
+
+    useEffect(() => {
+        axios.get(selectRoomTypeURL)
+            .then(res => {
+                setRoomTypeOptions(res.data);
+            })
+    }, []);
 
     const formatDate = (e) => {
         const inputDate = e.target.value;
         const regex = /^\d{4}-\d{2}-\d{2}$/;
 
         if(regex.test(inputDate)) setDate(inputDate);
-
-        console.log(inputDate);
     }
 
     const formatMobileNo = (e) => {
@@ -23,6 +41,23 @@ const Reservation = () => {
         const formattedMobileNo = mobileNo.replace(/^(\d{3})(\d{0,4})?(\d{0,4})?/, '$1-$2-$3');
 
         setMobileNo(formattedMobileNo);
+    }
+
+    const selectAvailableRoomNo = (e) => {
+        const selectedIndex = e.target.selectedIndex;
+        const standardRoomRate = e.target.options[selectedIndex].getAttribute("data-value");
+
+        setRoomTypeValue(e.target.value);
+        setRoomRate(standardRoomRate);
+
+        axios.get(selectAvailableRoomNoURL, {
+            params: {
+                roomTypeCode : e.target.value
+            }
+        })
+            .then(res => {
+                setRoomNoOptions(res.data);
+            })
     }
 
     return (
@@ -61,28 +96,45 @@ const Reservation = () => {
                             <Form.Control type="date" placeholder="yyyy-mm-dd" onChange={(e) => formatDate(e)} value={date}/>
                         </FloatingLabel>
                     </Form.Group>
+                    <Form.Group className="formLabel" as={Col}>
+                        <FloatingLabel controlId="floatingInput" label="박수" className="mb-3">
+                            <Form.Control type="text" placeholder="name@example.com" value={nights}/>
+                        </FloatingLabel>
+                    </Form.Group>
                 </Row>
 
                 <Row className="mb-3">
                     <Form.Group className="formLabel" as={Col}>
                         <FloatingLabel controlId="floatingInput" label="객실 타입" className="mb-3">
-                            <Form.Select defaultValue="Choose...">
-                                <option>Choose...</option>
-                                <option>...</option>
+                            <Form.Select value={roomTypeValue} onChange={(e) => selectAvailableRoomNo(e)}>
+                                <option value="">Choose...</option>
+                                {
+                                    roomTypeOptions.map(option => (
+                                        <option value={option.roomTypeCode} data-value={option.standardRoomRate}>
+                                            {option.roomTypeName}
+                                        </option>
+                                    ))
+                                }
                             </Form.Select>
                         </FloatingLabel>
                     </Form.Group>
                     <Form.Group className="formLabel" as={Col}>
                         <FloatingLabel controlId="floatingInput" label="Room No" className="mb-3">
-                            <Form.Select defaultValue="Choose...">
-                                <option>Choose...</option>
-                                <option>...</option>
+                            <Form.Select defaultValue="">
+                                <option value="">Choose...</option>
+                                {
+                                    roomNoOptions.map(option => (
+                                        <option value={option.roomNo}>
+                                            {option.roomNo}
+                                        </option>
+                                    ))
+                                }
                             </Form.Select>
                         </FloatingLabel>
                     </Form.Group>
                     <Form.Group className="formLabel" as={Col}>
-                        <FloatingLabel controlId="floatingInput" label="박수" className="mb-3">
-                            <Form.Control type="nights" placeholder="name@example.com"/>
+                        <FloatingLabel controlId="floatingInput" label="객실료" className="mb-3">
+                            <Form.Control type="text" placeholder="name@example.com" value={roomRate}/>
                         </FloatingLabel>
                     </Form.Group>
                 </Row>
