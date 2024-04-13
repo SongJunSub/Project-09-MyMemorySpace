@@ -22,21 +22,11 @@ public class QReservation extends EntityPathBase<Reservation> {
 
     public static final QReservation reservation = new QReservation("reservation");
 
-    public final StringPath address = createString("address");
-
     public final StringPath arrivalDate = createString("arrivalDate");
-
-    public final StringPath birthDate = createString("birthDate");
 
     public final mymemoryspace.backend.entity.customer.QCustomer customer;
 
     public final StringPath departureDate = createString("departureDate");
-
-    public final StringPath detailAddress = createString("detailAddress");
-
-    public final StringPath email = createString("email");
-
-    public final StringPath mobileNo = createString("mobileNo");
 
     public final NumberPath<Integer> nights = createNumber("nights", Integer.class);
 

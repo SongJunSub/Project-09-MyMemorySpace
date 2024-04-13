@@ -37,4 +37,14 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<Reservation> reservations = new ArrayList<>();
 
+    public Customer(String customerName, String birthDate, String mobileNo, String email, int visitCount, String blackListYn, String activeYn){
+        this.customerName = customerName;
+        this.birthDate = birthDate;
+        this.mobileNo = mobileNo;
+        this.email = email;
+        this.visitCount = visitCount;
+        this.blackListYn = blackListYn;
+        this.activeYn = activeYn;
+    }
+
 }

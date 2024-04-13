@@ -6,7 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import mymemoryspace.backend.entity.customer.Customer;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -33,17 +35,6 @@ public class Reservation {
     private String roomNo;
 
     @Column(length = 8)
-    private String birthDate;
-
-    private String mobileNo;
-
-    private String email;
-
-    private String address;
-
-    private String detailAddress;
-
-    @Column(length = 8)
     private String reservationDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -58,5 +49,27 @@ public class Reservation {
 
     @OneToMany(mappedBy = "reservation")
     private List<ReservationServiceRate> reservationServiceRates = new ArrayList<>();
+
+    public Reservation(String reservationName, String arrivalDate, String departureDate, int nights, String roomNo, Customer customer){
+        this.reservationName = reservationName;
+        this.arrivalDate = arrivalDate;
+        this.departureDate = departureDate;
+        this.nights = nights;
+        this.roomNo = roomNo;
+
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        this.reservationDate = currentDate.format(dateTimeFormatter);
+        this.rsvnStatusCode = ReservationStatusCode.RR;
+
+        if(customer != null){
+            changeCustomer(customer);
+        }
+    }
+
+    private void changeCustomer(Customer customer){
+        this.customer = customer;
+        customer.getReservations().add(this);
+    }
 
 }
