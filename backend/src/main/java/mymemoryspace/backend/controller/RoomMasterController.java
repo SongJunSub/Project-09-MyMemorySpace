@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import mymemoryspace.backend.dto.RoomMasterDto;
 import mymemoryspace.backend.service.jpa.RoomMasterService;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 

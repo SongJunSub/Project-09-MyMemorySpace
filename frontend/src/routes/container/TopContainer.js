@@ -26,9 +26,9 @@ const TopContainer = () => {
                             <NavDropdown title="Function" id="navbarScrollingDropdown">
                                 <NavDropdown.Item>기능 소개</NavDropdown.Item>
                                 <NavDropdown.Divider/>
-                                <NavDropdown.Item onClick={() => {navigate("/api/reservation")}}>Reservation</NavDropdown.Item>
-                                <NavDropdown.Item onClick={() => {navigate("/api/jpaSelect")}}>JPA Select</NavDropdown.Item>
-                                <NavDropdown.Item>Native Query Select</NavDropdown.Item>
+                                <NavDropdown.Item onClick={() => {navigate("/api/reservation")}}>예약 생성 (JPA)</NavDropdown.Item>
+                                <NavDropdown.Item onClick={() => {navigate("/api/jpaSelect")}}>예약 목록 (JPA)</NavDropdown.Item>
+                                <NavDropdown.Item>예약 목록 (MyBatis)</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                         <Form className="d-flex">
