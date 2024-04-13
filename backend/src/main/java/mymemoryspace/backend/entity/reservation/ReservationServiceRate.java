@@ -12,11 +12,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ReservationServiceRate {
 
-    @EmbeddedId
-    private ReservationRoomRateID serviceRateId;
+    @Id
+    @GeneratedValue
+    private Long serviceRateId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "reservation_no", insertable = false, updatable = false)
+    @JoinColumn(name = "reservationNo")
     private Reservation reservation;
 
     @Column(length = 8)

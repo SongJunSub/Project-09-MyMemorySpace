@@ -28,7 +28,7 @@ public class QReservationServiceRate extends EntityPathBase<ReservationServiceRa
 
     public final NumberPath<Integer> serviceRate = createNumber("serviceRate", Integer.class);
 
-    public final QReservationRoomRateID serviceRateId;
+    public final NumberPath<Long> serviceRateId = createNumber("serviceRateId", Long.class);
 
     public final StringPath serviceTypeCode = createString("serviceTypeCode");
 
@@ -53,7 +53,6 @@ public class QReservationServiceRate extends EntityPathBase<ReservationServiceRa
     public QReservationServiceRate(Class<? extends ReservationServiceRate> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.reservation = inits.isInitialized("reservation") ? new QReservation(forProperty("reservation"), inits.get("reservation")) : null;
-        this.serviceRateId = inits.isInitialized("serviceRateId") ? new QReservationRoomRateID(forProperty("serviceRateId")) : null;
     }
 
 }

@@ -13,7 +13,11 @@ public class ReservationCondition {
 
     private int nights;
 
+    private String roomTypeCode;
+
     private String roomNo;
+
+    private int roomRate;
 
     private String birthDate;
 

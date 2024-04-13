@@ -17,7 +17,7 @@ const Reservation = () => {
     const [birthDate, setBirthDate] = useState("");
     const [nights, setNights] = useState(1);
     const [roomTypeOptions, setRoomTypeOptions] = useState([]);
-    const [roomType, setRoomType] = useState("");
+    const [roomTypeCode, setRoomTypeCode] = useState("");
     const [roomNoOptions, setRoomNoOptions] = useState([]);
     const [roomNo, setRoomNo] = useState("");
     const [roomRate, setRoomRate] = useState("");
@@ -71,7 +71,7 @@ const Reservation = () => {
         const selectedIndex = e.target.selectedIndex;
         const standardRoomRate = e.target.options[selectedIndex].getAttribute("data-value");
 
-        setRoomType(e.target.value);
+        setRoomTypeCode(e.target.value);
         setRoomRate(standardRoomRate);
 
         axios.get(selectAvailableRoomNoURL, {
@@ -100,7 +100,7 @@ const Reservation = () => {
             arrivalDate: arrivalDate.replaceAll("-", ""),
             departureDate: departureDate.replaceAll("-", ""),
             nights,
-            roomType,
+            roomTypeCode,
             roomNo,
             roomRate,
             birthDate: birthDate.replaceAll("-", ""),
@@ -168,7 +168,7 @@ const Reservation = () => {
                 <Row className="mb-3">
                     <Form.Group className="formLabel" as={Col}>
                         <FloatingLabel controlId="floatingInput" label="객실 타입" className="mb-3">
-                            <Form.Select defaultValue="" name="roomType" value={roomType} onChange={(e) => selectAvailableRoomNo(e)}>
+                            <Form.Select defaultValue="" name="roomTypeCode" value={roomTypeCode} onChange={(e) => selectAvailableRoomNo(e)}>
                                 <option value="">Choose...</option>
                                 {
                                     roomTypeOptions.map(option => (

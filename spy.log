@@ -1,0 +1,3 @@
+1713027081856|23|rollback|connection 3|url jdbc:mysql://junsub-dev.ctaka20akw4u.ap-northeast-2.rds.amazonaws.com/MY_MEMORY_SPACE||
+1713027286575|41|commit|connection 500|url jdbc:mysql://junsub-dev.ctaka20akw4u.ap-northeast-2.rds.amazonaws.com/MY_MEMORY_SPACE||
+1713027286596|2|rollback|connection 4|url jdbc:mysql://junsub-dev.ctaka20akw4u.ap-northeast-2.rds.amazonaws.com/MY_MEMORY_SPACE||
