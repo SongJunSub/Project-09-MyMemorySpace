@@ -1,4 +1,4 @@
-import {Accordion, Badge, CloseButton, Table} from "react-bootstrap";
+import {Accordion, CloseButton, Table} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 
 const JPASelect = () => {
