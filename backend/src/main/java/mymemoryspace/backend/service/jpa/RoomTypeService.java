@@ -14,9 +14,9 @@ public class RoomTypeService {
     private final RoomTypeRepository roomTypeRepository;
 
     public List<RoomTypeDto> findRoomType(){
-        String activnYn = "Y";
+        String activeYn = "Y";
 
-        return roomTypeRepository.findRoomType(activnYn);
+        return roomTypeRepository.findRoomType(activeYn);
     }
 
 }

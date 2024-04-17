@@ -20,7 +20,7 @@ public class RoomMasterRepository {
         this.jpaQueryFactory = new JPAQueryFactory(entityManager);
     }
 
-    public List<RoomMasterDto> findRoomMaster(String roomTypeCode, String activnYn) {
+    public List<RoomMasterDto> findRoomMaster(String roomTypeCode, String activeYn) {
         return jpaQueryFactory
                 .select(new QRoomMasterDto(
                         roomMaster.roomNo,
@@ -29,7 +29,7 @@ public class RoomMasterRepository {
                 .from(roomMaster)
                 .where(
                         roomTypeCodeEq(roomTypeCode),
-                        activeYnEq(activnYn)
+                        activeYnEq(activeYn)
                 )
                 .fetch();
     }

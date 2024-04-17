@@ -14,9 +14,9 @@ public class RoomMasterService {
     private final RoomMasterRepository roomMasterRepository;
 
     public List<RoomMasterDto> findRoomMaster(String roomTypeCode){
-        final String activnYn = "Y";
+        final String activeYn = "Y";
 
-        return roomMasterRepository.findRoomMaster(roomTypeCode, activnYn);
+        return roomMasterRepository.findRoomMaster(roomTypeCode, activeYn);
     }
 
 }
