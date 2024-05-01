@@ -1,7 +1,6 @@
 package mymemoryspace.backend.controller;
 
 import lombok.RequiredArgsConstructor;
-import mymemoryspace.backend.dto.RoomMasterDto;
 import mymemoryspace.backend.dto.RoomTypeDto;
 import mymemoryspace.backend.service.jpa.RoomTypeService;
 import org.springframework.web.bind.annotation.GetMapping;
